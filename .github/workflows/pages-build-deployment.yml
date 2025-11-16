@@ -1,4 +1,4 @@
-name: Deploy my-portfolio-final to GitHub Pages
+name: Check Portfolio (No GitHub Pages)
 
 on:
   push:
@@ -6,15 +6,11 @@ on:
       - main  # Khi push lên main, workflow sẽ chạy
 
 jobs:
-  deploy:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./         # root folder chứa index.html
-          force_orphan: true      # tạo branch gh-pages nếu chưa tồn tại
+      - name: List repository files
+        run: ls -R
