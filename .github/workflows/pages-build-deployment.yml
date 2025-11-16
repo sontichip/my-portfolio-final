@@ -3,7 +3,7 @@ name: Deploy my-portfolio-final to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Khi push lên main, workflow sẽ chạy
 
 jobs:
   deploy:
@@ -16,4 +16,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Đây là root folder chứa index.html
+          publish_dir: ./         # root folder chứa index.html
+          force_orphan: true      # tạo branch gh-pages nếu chưa tồn tại
