@@ -3,14 +3,16 @@ name: Check Portfolio (No GitHub Pages)
 on:
   push:
     branches:
-      - main  # Khi push lên main, workflow sẽ chạy
+      - main
 
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          submodules: false   # tắt fetch submodules, tránh lỗi 128
 
       - name: List repository files
         run: ls -R
