@@ -12,7 +12,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: false   # tắt fetch submodules, tránh lỗi 128
+          submodules: false   # tắt fetch submodules
+          fetch-depth: 0      # checkout full repo, tránh lỗi submodule
 
       - name: List repository files
         run: ls -R
